@@ -33,7 +33,6 @@ class MessagesController < ApplicationController
     end
   end
   
-  end
   
   def destroy
     @message.destroy
