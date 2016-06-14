@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'index'
     end
+  end
     
   def edit
   end
@@ -27,10 +28,6 @@ class MessagesController < ApplicationController
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
     end
-    
-    def set_message
-    @message = Message.find(params[:id])
-    end
   end
   
   
@@ -39,11 +36,13 @@ class MessagesController < ApplicationController
     redirect_to root_path, notice: 'メッセージを削除しました'
   end
   
-  end
-  
   private
   def message_params
     params.require(:message).permit(:name, :body)
+  end
+  
+  def set_message
+    @message = Message.find(params[:id])
   end
   
 end
