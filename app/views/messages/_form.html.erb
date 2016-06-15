@@ -4,6 +4,8 @@
       <%= alert %>
       <ul>
         <% @message.errors.full_messages.each do |full_message| %>
+        <%= link_to "edit" , edit_message_path(message) %>
+        <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
           <li>
             <%= full_message %>
           </li>
@@ -28,3 +30,4 @@
     </div>
   </div>
 <% end %>
+
